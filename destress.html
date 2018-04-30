@@ -1,0 +1,196 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Sort the Shapes by Color</title>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w" crossorigin="anonymous">
+</head>
+
+
+<!-- Shapes are from http://csshexagon.com/-->
+<!-- Draggable js functions from w3schools example for drag and drop images-->
+
+<style>
+
+#shapes {
+	height:30%;
+	margin: 10px;
+}
+
+#sort1, #sort2 {
+    float: left;
+    width: 40%;
+    height: 60%;
+    margin: 10px;
+    border: 1px solid black;
+}
+
+
+body {
+	background-color: #E6EBE0;
+	margin: 50px;
+}
+
+.hexagon {
+  position: relative;
+  width: 60px; 
+  height: 34.64px;
+  background-color: #64C7CC;
+  margin: 17.32px 0;
+}
+
+.hexagon:before,
+.hexagon:after {
+  content: "";
+  position: absolute;
+  width: 0;
+  border-left: 30px solid transparent;
+  border-right: 30px solid transparent;
+}
+
+.hexagon:before {
+  bottom: 100%;
+  border-bottom: 17.32px solid #64C7CC;
+}
+
+.hexagon:after {
+  top: 100%;
+  width: 0;
+  border-top: 17.32px solid #64C7CC;
+}
+
+.hexagon2 {
+  position: relative;
+  width: 60px; 
+  height: 34.64px;
+  background-color: #ED6A5A;
+  margin: 17.32px 0;
+}
+
+.hexagon2:before,
+.hexagon2:after {
+  content: "";
+  position: absolute;
+  width: 0;
+  border-left: 30px solid transparent;
+  border-right: 30px solid transparent;
+}
+
+.hexagon2:before {
+  bottom: 100%;
+  border-bottom: 17.32px solid #ED6A5A;
+}
+
+.hexagon2:after {
+  top: 100%;
+  width: 0;
+  border-top: 17.32px solid #ED6A5A;
+}
+
+
+
+#drag1, #drag2, #drag3, #drag4 {
+	margin-left: 50px;
+	float: left;
+}
+
+#dragc1, #dragc2, #dragc3, #dragc4 {
+	margin-left: 50px;
+	float: left;
+
+}
+
+
+
+</style>
+
+
+<script>
+function allowDrop(item) {
+    item.preventDefault();
+}
+
+function drag(item) {
+    item.dataTransfer.setData("text", item.target.id);
+}
+
+function drop(item) {
+    item.preventDefault();
+    var data = item.dataTransfer.getData("text");
+    item.target.appendChild(document.getElementById(data));
+}
+
+if( $('#shapes').is(':empty') ) {
+	alert("You did it!");
+}
+
+</script>
+
+<h1>Organize the Shapes</h1>
+
+<h4>Drag and drop the shapes into different boxes based on color</h4>
+<body>
+
+
+<div id="shapes" ondrop="drop(event)" ondragover="allowDrop(event)">
+	<div class="hexagon2" draggable="true" ondragstart="drag(event)" id="dragc3"></div>
+
+<div class="hexagon" draggable="true" ondragstart="drag(event)" id="drag2"></div>
+
+<div class="hexagon2" draggable="true" ondragstart="drag(event)" id="dragc3"></div>
+
+<div class="hexagon2" draggable="true" ondragstart="drag(event)" id="dragc3"></div>
+
+<div class="hexagon" draggable="true" ondragstart="drag(event)" id="drag1"></div>
+
+<div class="hexagon2" draggable="true" ondragstart="drag(event)" id="dragc2"></div>
+
+<div class="hexagon2" draggable="true" ondragstart="drag(event)" id="dragc3"></div>
+
+<div class="hexagon" draggable="true" ondragstart="drag(event)" id="drag1"></div>
+
+<div class="hexagon" draggable="true" ondragstart="drag(event)" id="drag3"></div>
+
+<div class="hexagon" draggable="true" ondragstart="drag(event)" id="drag4"></div>
+
+
+<div class="hexagon2" draggable="true" ondragstart="drag(event)" id="dragc1"></div>
+
+
+<div class="hexagon2" draggable="true" ondragstart="drag(event)" id="dragc2"></div>
+
+<div class="hexagon" draggable="true" ondragstart="drag(event)" id="drag1"></div>
+
+<div class="hexagon" draggable="true" ondragstart="drag(event)" id="drag3"></div>
+
+<div class="hexagon" draggable="true" ondragstart="drag(event)" id="drag1"></div>
+
+<div class="hexagon" draggable="true" ondragstart="drag(event)" id="drag3"></div>
+
+<div class="hexagon2" draggable="true" ondragstart="drag(event)" id="dragc3"></div>
+
+<div class="hexagon2" draggable="true" ondragstart="drag(event)" id="dragc4"></div>
+
+<div class="hexagon" draggable="true" ondragstart="drag(event)" id="drag3"></div>
+
+<div class="hexagon2" draggable="true" ondragstart="drag(event)" id="dragc4"></div>
+
+
+</div>
+
+	<div id="home">
+	
+	<button class="home" id="back_home" onclick="window.location.href='https://rapa5960.github.io/homepage/'"> Back to Home page</button>
+    </div>
+
+<div id="sort1"  ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+<div id="sort2"  ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="todolist.js"></script>
+
+</body>
+
+</html>
+
